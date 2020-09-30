@@ -64,10 +64,10 @@ function main()
 	//	Fonction qui vérifie quel est le disque le plus proche du disque central
 	function checkNearest()
 	{
-		//	Calcul théorème de pythagore : distance = racine carrée ( (xA - xB)^2 + (yA - yB)^2 )	
-		var redDistance = Math.sqrt(Math.pow(centerDisk.x - redDisk.x, 2) + Math.pow(centerDisk.y - redDisk.y, 2));
-		var greenDistance = Math.sqrt(Math.pow(centerDisk.x - greenDisk.x, 2) + Math.pow(centerDisk.y - greenDisk.y, 2));
-		var blueDistance = Math.sqrt(Math.pow(centerDisk.x - blueDisk.x, 2) + Math.pow(centerDisk.y - blueDisk.y, 2));
+		//	Calcul théorème de pythagore sans la racine carrée pour alléger le calcul : distance = (xA - xB)^2 + (yA - yB)^2	
+		var redDistance = Math.pow(centerDisk.x - redDisk.x, 2) + Math.pow(centerDisk.y - redDisk.y, 2);
+		var greenDistance = Math.pow(centerDisk.x - greenDisk.x, 2) + Math.pow(centerDisk.y - greenDisk.y, 2);
+		var blueDistance = Math.pow(centerDisk.x - blueDisk.x, 2) + Math.pow(centerDisk.y - blueDisk.y, 2);
 
 		if (redDistance < greenDistance && redDistance < blueDistance)
 		{
@@ -116,7 +116,7 @@ function main()
 	{
     		var distSqr = Math.pow(circle.x - mouseX, 2) + Math.pow(circle.y - mouseY, 2);
 
-    		if(distSqr < circle.radius * circle.radius)
+    		if(distSqr < Math.pow(circle.radius, 2))
     		{
         		return true;
     		}
