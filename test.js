@@ -131,7 +131,7 @@ function main()
 		mouseY = event.pageY;
 		
 		//	On teste si un disque a été cliqué, sur une correponsdance on déplace le disque jusqu'à ce que le clic soit relaché
-		for(var count = 0; count < 3; count += 1)
+		for(var count = 0; count < 3; count++)
 		{
 			var handle = handles[count];
 			if(isCursorWithinCircle(handle, mouseX, mouseY))
